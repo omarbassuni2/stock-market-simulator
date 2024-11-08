@@ -1,4 +1,4 @@
-import getLogger from "./logger.js";
+import getLogger from "./Logger.js";
 
 class StockListener {
   constructor(stocks, stockManager, X) {

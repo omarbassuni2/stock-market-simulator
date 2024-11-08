@@ -1,4 +1,5 @@
 import { PriorityQueue } from "@datastructures-js/priority-queue";
+import { getSpareStockInitValue } from "./utils.js";
 
 class StockManager {
   constructor(M) {
@@ -8,7 +9,7 @@ class StockManager {
       if (a.price < b.price) return -1;
       return 0;
     });
-    this.spareStock = { name: "s", price: -10000 };
+    this.spareStock = getSpareStockInitValue();
   }
 
   updateTopStocks(stock) {
