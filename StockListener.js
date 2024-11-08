@@ -1,10 +1,10 @@
-import getLogger from "./Logger.js";
+import getOrInitWinstonInstance from "./Logger.js";
 
 class StockListener {
   constructor(stocks, stockManager, X) {
     this.X = X;
     this.stockChangeCount = 1;
-    this.logger = getLogger();
+    this.logger = getOrInitWinstonInstance();
     this.timeoutTimer = undefined;
     this.stocks = stocks;
     this.stockManager = stockManager;
