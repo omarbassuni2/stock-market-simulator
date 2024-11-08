@@ -1,4 +1,4 @@
-import getLogger from "./logger.js";
+import getLogger from "./Logger.js";
 import StockStore from "./StockStore.js";
 
 class Main {

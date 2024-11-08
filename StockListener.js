@@ -1,4 +1,4 @@
-import getLogger from "./logger.js";
+import getLogger from "./Logger.js";
 
 class StockListener {
   constructor(stocks, stockManager, X) {
@@ -34,7 +34,7 @@ class StockListener {
         this.logger.logUpdate(
           "Top Stocks: \n" +
             this.stockManager
-              .getTopStocks()
+              .getTopStocksValue()
               .map((e) => `name: ${e.name} - price: ${e.price}`)
               .join("\n")
         );
