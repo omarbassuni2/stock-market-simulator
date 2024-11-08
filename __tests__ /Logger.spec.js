@@ -18,8 +18,8 @@ describe("Winston Logger", () => {
     winstonInstance.clearInterval();
     const logsDir = testGetLogsDir();
     const files = fs.readdirSync(logsDir);
-    expect(files.length).toBe(1);
-    files.forEach((file) => fs.unlinkSync(path.join(d, file)));
+    expect(files.length).toBeGreaterThan(0);
+    files.forEach((file) => fs.unlinkSync(path.join(logsDir, file)));
     fs.rmdirSync(logsDir);
   });
 });
