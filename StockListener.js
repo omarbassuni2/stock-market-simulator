@@ -34,7 +34,7 @@ class StockListener {
         this.logger.logUpdate(
           "Top Stocks: \n" +
             this.stockManager
-              .getTopStocks()
+              .getTopStocksValue()
               .map((e) => `name: ${e.name} - price: ${e.price}`)
               .join("\n")
         );
