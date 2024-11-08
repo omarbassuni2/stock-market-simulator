@@ -1,9 +1,9 @@
-import getLogger from "./Logger.js";
+import getOrInitWinstonInstance from "./Logger.js";
 import StockStore from "./StockStore.js";
 
 class Main {
   constructor(M, X, H) {
-    getLogger(H);
+    getOrInitWinstonInstance(H);
     this.stockStore = new StockStore(M, X);
     console.log("File logger and Stock Store were initialized!");
     this.stockStore.start();

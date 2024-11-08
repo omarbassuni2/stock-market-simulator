@@ -1,10 +1,11 @@
 import fs from "fs";
 import path from "path";
-import Winston from "../Logger.js";
+import getOrInitWinstonInstance from "../Logger.js";
+import { testGetLogsDir } from "./TestUtils.js";
 
 describe("Winston Logger", () => {
   it("should add new file transport after interval", async () => {
-    const winstonInstance = new Winston(1);
+    const winstonInstance = getOrInitWinstonInstance(1);
     await new Promise((resolve) => {
       setTimeout(() => {
         expect(winstonInstance.getLogger().transports.length).toBeGreaterThan(
@@ -15,9 +16,10 @@ describe("Winston Logger", () => {
     });
     winstonInstance.getLogger().clear();
     winstonInstance.clearInterval();
-    const d = "./logs/tests-generated";
-    const files = fs.readdirSync(d);
-    expect(files.length).toBeGreaterThan(0);
+    const logsDir = testGetLogsDir();
+    const files = fs.readdirSync(logsDir);
+    expect(files.length).toBe(1);
     files.forEach((file) => fs.unlinkSync(path.join(d, file)));
+    fs.rmdirSync(logsDir);
   });
 });

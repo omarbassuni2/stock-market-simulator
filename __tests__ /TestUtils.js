@@ -48,3 +48,7 @@ export function seedData2() {
     "stock 6": { price: "103.45", perc: "-4.62" },
   };
 }
+
+export function testGetLogsDir() {
+  return "./logs/tests-generated";
+}
