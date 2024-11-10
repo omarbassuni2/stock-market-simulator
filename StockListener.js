@@ -23,7 +23,14 @@ class StockListener {
           stock.once("tick", (s) => {
             this.logger.logUpdate(JSON.stringify(s));
             s["price"] = Number(s["price"]);
-            this.stockManager.updateTopStocks(s);
+            const shouldRebuildTopStocks = this.stockManager.updateTopStocks(s);
+            if(shouldRebuildTopStocks) {
+              this.stockManager.clearStocks();
+              this.stocks.forEach((ss) => {
+                ss["price"] = Number(ss["price"]);
+                this.stockManager.updateTopStocks(ss)
+              });
+            }
             res();
           });
         });

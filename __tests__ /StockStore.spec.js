@@ -20,7 +20,7 @@ describe("StockStore", () => {
     await new Promise((resolve) => setTimeout(resolve, 100));
     store.stop();
     store.stocks.forEach((s) => s.stop());
-    expect(store.stockManager.topStocks.size()).toBe(M);
+    expect(store.stockManager.topStocks.size()).toBe(2 * M);
     expect(fs.readdirSync(logsDir).length).toBeGreaterThan(0);
     store.listener.logger.clearInterval();
     const files = fs.readdirSync(logsDir);

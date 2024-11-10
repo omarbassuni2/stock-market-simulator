@@ -98,7 +98,14 @@ describe("StockManager", () => {
     Object.keys(d2).forEach((name) => {
       const toBeChanged = stocks.find((s) => s.name === name);
       toBeChanged.price = d2[name].price;
-      manager.updateTopStocks(toBeChanged);
+      let shouldRebuildTopStocks = manager.updateTopStocks(toBeChanged);
+      if(shouldRebuildTopStocks) {
+        manager.clearStocks();
+        stocks.forEach((ss) => {
+          ss["price"] = Number(ss["price"]);
+          manager.updateTopStocks(ss)
+        });
+      }
     });
     const isTopStocksCorrect = testIsTopStocksEqualToAllStocksSorted(
       testGetAllStocksValuesSorted(stocks),

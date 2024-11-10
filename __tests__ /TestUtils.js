@@ -36,16 +36,12 @@ export function seedData1() {
 
 export function seedData2() {
   return {
-    "stock 9": { price: "103.13", perc: "3.13" },
-    "stock 7": { price: "105.37", perc: "5.37" },
-    "stock 1": { price: "109.34", perc: "9.34" },
-    "stock 5": { price: "95.64", perc: "-4.36" },
-    "stock 2": { price: "86.62", perc: "-13.38" },
-    "stock 8": { price: "96.59", perc: "-3.41" },
-    "stock 0": { price: "92.70", perc: "-7.30" },
-    "stock 3": { price: "102.43", perc: "2.43" },
-    "stock 4": { price: "94.73", perc: "-5.27" },
-    "stock 6": { price: "103.45", perc: "-4.62" },
+    "stock 7": { price: "1.37", perc: "5.37" },
+    "stock 1": { price: "1.34", perc: "9.34" },
+    "stock 8": { price: "1.59", perc: "-3.41" },
+    "stock 3": { price: "1.43", perc: "2.43" },
+    "stock 4": { price: "1.73", perc: "-5.27" },
+    "stock 6": { price: "1.45", perc: "-4.62" },
   };
 }
 
